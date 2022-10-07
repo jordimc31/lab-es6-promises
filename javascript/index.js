@@ -182,5 +182,26 @@ makeBroccoli();
 // ...
 
 // Bonus 2 - Promise all
+async function makeBrusselsSprouts() {
+  const step0 = obtainInstruction("brusselsSprouts", 0);
+  const step1 = obtainInstruction("brusselsSprouts", 1);
+  const step2 = obtainInstruction("brusselsSprouts", 2);
+  const step3 = obtainInstruction("brusselsSprouts", 3);
+  const step4 = obtainInstruction("brusselsSprouts", 4);
+  const step5 = obtainInstruction("brusselsSprouts", 5);
+  const step6 = obtainInstruction("brusselsSprouts", 6);
 
+  Promise.all([step0, step1, step2, step3, step4, step5, step6])
+    .then((stepMessages) => {
+      stepMessages.forEach((message) => {
+        document.querySelector(
+          "#brusselsSprouts"
+        ).innerHTML += `<li>${message}</li>`;
+      });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+makeBrusselsSprouts();
 // ...
